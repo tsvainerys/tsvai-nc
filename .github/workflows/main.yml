@@ -16,4 +16,4 @@ jobs:
       with:
         api_token: $ # uses your neocities token
         cleanup: true # deletes all files that aren't in your repository. if you don't want this, replace "true" with "false"
-        dist_dir: github
+        dist_dir: public

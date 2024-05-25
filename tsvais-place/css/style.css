@@ -1,0 +1,56 @@
+@font-face {
+    font-family:'logostile' ;
+    src: url(/css/font-files/Logostile.ttf);
+}
+@font-face {
+    font-family: 'garet';
+    src: url(/css/font-files/garet/Garet-Book.ttf);
+}
+html {
+    min-height: 100%;
+}
+body {
+    background: linear-gradient(to bottom right, deepskyblue, white);
+    font-family: 'garet';
+    color: white;
+    display: grid;
+    grid-template-areas: 
+        'header header header header header'
+        'navi main main main main'
+        'navi main main main main';            
+    gap: 20px;
+}
+#navigation {
+    background-color:azure;
+    color: deepskyblue;
+    min-width: min-content;
+    width: 200px;
+    height: fit-content;
+    text-align: center;
+    grid-area: navi;
+}
+@media (prefers-color-scheme: dark) {
+    body {
+        background: linear-gradient(to bottom right, midnightblue, black);
+    }
+    #navigation {
+        background-color: black;
+        color: white;
+    }
+}
+nav ul {
+    list-style: none;
+    padding-left: 0;
+}
+a {
+    text-decoration: none;
+    color: inherit;
+}
+#site-title {
+    font-family: logostile;
+    letter-spacing: 3px;
+    grid-area: header;
+}
+#main {
+    grid-area: main;
+}

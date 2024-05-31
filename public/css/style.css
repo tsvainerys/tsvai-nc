@@ -6,27 +6,35 @@
     font-family: 'garet';
     src: url(/css/font-files/garet/Garet-Book.ttf);
 }
+:root {
+    --bg: ghostwhite;
+    --txt: midnightblue;
+    --accent: lavender;
+}
 html {
     min-height: 100%;
 }
 body {
-    background: linear-gradient(to bottom right, deepskyblue, white);
+    background: linear-gradient(to bottom right, var(--bg), var(--accent));
     font-family: 'garet';
-    color: white;
+    color: var(--txt);
     display: grid;
     grid-template-areas: 
-        'header header header header header'
-        'navi main main main main'
-        'navi main main main main';            
+        'header header header header'
+        'navi main main main'
+        'ft ft ft ft';            
     gap: 20px;
+    grid-template-rows: auto 1fr auto;
+    align-content: start;
+    min-height: 100vh;
 }
 #navigation {
-    color: deepskyblue;
-    width: 200px;
+    color: var(--bg);
     height: fit-content;
     text-align: left;
     grid-area: navi;
-    margin: 0 auto;
+    margin: 0;
+    margin-left: 10px;
 }
 nav ul {
     list-style: none;
@@ -35,23 +43,38 @@ nav ul {
     flex-direction: column;
 }
 nav li {
-    background-color: white;
+    background-color: var(--txt);
     margin: 3px 0;
     width: 150px;
     border-radius: 5px;
     box-sizing: border-box;
     padding-left: 10%;
 }
-a {
+a, footer a{
     text-decoration: none;
     color: inherit;
+    transition: 0.3s;
+}
+a:hover {
+    text-shadow: 0 0 7px var(--bg);
+    color: var(--txt);
+}
+.active::before, .active::after {
+    content: '_';
+}
+.active {
+    font-style: italic;
+}
+.active:hover {
+    text-shadow: none;
+    color:inherit;
+    cursor: default;
 }
 @media (prefers-color-scheme: dark) {
-    body {
-        background: linear-gradient(to bottom right, midnightblue, black);
-    }
-    #navigation {
-        color: white;
+    :root {
+        --bg: midnightblue;
+        --txt: white;
+        --accent: black;
     }
 }
 h1, h2, h3 {
@@ -62,6 +85,25 @@ h1, h2, h3 {
     letter-spacing: 3px;
     grid-area: header;
 }
-#main {
+#site-title a {
+    transition: 0.6s;
+}
+#site-title a:hover {
+    text-shadow: 0 0 10px var(--txt);
+    color: var(--accent);
+}
+main {
     grid-area: main;
+    margin: 0;
+}
+.log {
+    list-style-type: square;
+}
+footer {
+    grid-area: ft;
+    text-align: center;
+    font-size: small;
+}
+footer a:hover {
+    text-shadow: 0 0 10px var(--txt);
 }

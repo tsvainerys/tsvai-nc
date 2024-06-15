@@ -1,3 +1,4 @@
+//credit to petrapixel <3
 document.addEventListener("DOMContentLoaded", function () {
     if (document.body.classList.contains('no-layout')) return;
 
@@ -39,7 +40,7 @@ const headerEl = `
 <ul>
     <li><a href="about.html">about</a></li>
     <li><a href="site-log.html">site log</a></li>
-    <li><a href="not_found.html">links</a></li>
+    <li><a href="links.html">links</a></li>
 </ul>
 </nav>
 `;

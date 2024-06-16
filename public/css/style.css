@@ -76,7 +76,7 @@ nav .active:hover {
     cursor: default;
 }
 
-h1, h2, h3 {
+h1, h2, h3, h4, h5, h6 {
     font-family: logostile;
 }
 header {
@@ -114,6 +114,38 @@ footer a:hover {
 }
 .small {
     font-size: small;
+}
+/*minigame styles*/
+.minigame {
+    background-color: var(--accent);
+    padding: 1rem;
+    height: 12em;
+    display: grid;
+    grid-template-areas: 
+    'text'
+    'buttons';
+    grid-template-rows: 1fr auto;
+}
+.minigame #gameText {
+    grid-area: text;
+}
+.minigame #buttons {
+    grid-area: 'buttons';
+}
+.minigame button {
+    font-family: garet;
+    font-style: italic;
+    background: none;
+    color: var(--txt);
+    border: none;
+    display: block;
+}
+.minigame button:hover {
+    text-shadow: 0 0 5px var(--txt);
+    padding-left: 10px;
+}
+.minigame button::before {
+    content: "> ";
 }
 @media (max-width: 768px) {
     body {

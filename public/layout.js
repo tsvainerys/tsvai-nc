@@ -41,6 +41,7 @@ const headerEl = `
     <li><a href="about.html">about</a></li>
     <li><a href="site-log.html">site log</a></li>
     <li><a href="links.html">links</a></li>
+    <li><a href="game.html">game</a></li>
 </ul>
 </nav>
 `;

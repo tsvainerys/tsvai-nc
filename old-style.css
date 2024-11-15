@@ -1,0 +1,188 @@
+@font-face {
+    font-family:'logostile' ;
+    src: url(/css/font-files/Logostile.ttf);
+}
+@font-face {
+    font-family: 'garet';
+    src: url(/css/font-files/garet/Garet-Book.ttf);
+}
+:root {
+    --bg: ghostwhite;
+    --txt: midnightblue;
+    --accent: lavender;
+}
+*, *::after, *::before {
+    box-sizing: border-box;
+    max-width: 100%;
+}
+body {
+    background: linear-gradient(to bottom right, var(--bg), var(--accent));
+    font-family: 'garet';
+    color: var(--txt);
+    display: grid;
+    grid-template-areas: 
+        'header header header header'
+        'navi main main main'
+        'ft ft ft ft';            
+    gap: 20px;
+    grid-template-rows: auto 1fr auto;
+    grid-template-columns: auto 1fr ;
+    align-content: start;
+    min-height: 100vh;
+    width: 75%;
+    margin: auto;
+}
+#navigation {
+    color: var(--bg);
+    width: fit-content;
+    height: fit-content;
+    text-align: left;
+    grid-area: navi;
+    margin: 0;
+    margin-left: 10px;
+}
+nav ul {
+    list-style: none;
+    padding-left: 0;
+    display: flex;
+    flex-direction: column;
+}
+nav li {
+    background-color: var(--txt);
+    margin: 3px 0;
+    width: 150px;
+    border-radius: 5px;
+    box-sizing: border-box;
+    padding-left: 10%;
+}
+a, footer a{
+    text-decoration: none;
+    color: inherit;
+    transition: 0.3s;
+}
+a:hover {
+    text-shadow: 0 0 7px var(--bg);
+    color: var(--txt);
+}
+nav .active::before, nav .active::after {
+    content: '_';
+}
+nav .active {
+    font-style: italic;
+}
+nav .active:hover {
+    text-shadow: none;
+    color:inherit;
+    cursor: default;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: logostile;
+}
+header {
+    grid-area: header;
+}
+#site-title {
+    font-family: logostile;
+    letter-spacing: 3px;
+    padding-left: 1rem;
+}
+#site-title a {
+    transition: 0.6s;
+}
+#site-title a:hover {
+    text-shadow: 0 0 10px var(--txt);
+    color: var(--accent);
+}
+main {
+    grid-area: main;
+    margin: auto;
+    margin-top: 0;
+    width: 75%;
+}
+.log {
+    list-style-type: square;
+}
+footer {
+    grid-area: ft;
+    text-align: center;
+    font-size: small;
+    padding: 2em;
+}
+footer a:hover {
+    text-shadow: 0 0 10px var(--txt);
+}
+.small {
+    font-size: small;
+}
+/*minigame styles*/
+.minigame {
+    background-color: var(--accent);
+    padding: 1rem;
+    height: 15em;
+    display: grid;
+    grid-template-areas: 
+    'text'
+    'buttons';
+    grid-template-rows: 1fr auto;
+}
+.minigame #gameText {
+    grid-area: text;
+    align-self: center;
+}
+.minigame #buttons {
+    grid-area: 'buttons';
+}
+.minigame button {
+    font-family: garet;
+    font-style: italic;
+    background: none;
+    color: var(--txt);
+    border: none;
+    display: block;
+}
+.minigame button:hover {
+    text-shadow: 0 0 5px var(--txt);
+    padding-left: 10px;
+}
+.minigame button::before {
+    content: "> ";
+}
+@media (max-width: 768px) {
+    body {
+        display: block;
+    }
+    #site-title {
+        padding-left: 1rem;
+    }
+    #navigation {
+        text-align: center;
+        height: fit-content;
+        margin: 0.5em;
+    }
+    #navigation ul{
+        display: flexbox;flex-direction: row;
+        padding-left: none;
+        column-gap: 0.5em;
+    }
+    #navigation li {
+        height: max-content;
+        flex-grow: 1;
+        padding-left: 0;
+    }
+    main {
+        position: relative;
+        top: 0;
+        margin: 1em;
+    }
+    footer {
+        width: initial;
+    }
+}
+@media (prefers-color-scheme: dark) {
+    :root {
+        --bg: midnightblue;
+        --txt: white;
+        --accent: black;
+    }
+}

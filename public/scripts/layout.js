@@ -34,14 +34,15 @@ const nesting = getNestingString();
 
 const headerEl = `
 <header>
-<h1 id="site-title"><a href="index.html">t'svai's place</a></h1>
+<h1 id="site-title"><a href="${nesting}/index.html">t'svai's place</a></h1>
 </header>
 <nav id="navigation">
 <ul>
-    <li><a href="about.html">about</a></li>
-    <li><a href="site-log.html">site log</a></li>
-    <li><a href="links.html">links</a></li>
-    <li><a href="game.html">game</a></li>
+    <li><a href="${nesting}/about.html">about</a></li>
+    <li><a href="${nesting}/site-log.html">site log</a></li>
+    <li><a href="${nesting}/links.html">links</a></li>
+    <li><a href="${nesting}/game.html">game</a></li>
+    <li><a href="${nesting}/blog/index.html">blog</a></li>
 </ul>
 </nav>
 `;

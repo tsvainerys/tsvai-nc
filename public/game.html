@@ -5,8 +5,40 @@
     <meta charset="UTF-8">
     <title>game</title>
     <link rel="stylesheet" href="css/style.css">
-    <script src="layout.js"></script>
-    <script src="head.js">//only if using title</script>
+    <script src="scripts/layout.js"></script>
+    <script src="scripts/head.js"></script>
+    <style>      
+        .minigame {
+            padding: 1rem;
+            height: 15em;
+            display: grid;
+            grid-template-areas: 
+            'text'
+            'buttons';
+            grid-template-rows: 1fr auto;
+        }
+        .minigame #gameText {
+            grid-area: text;
+            align-self: center;
+        }
+        .minigame #buttons {
+            grid-area: 'buttons';
+        }
+        .minigame button {
+            font-family: garet;
+            font-style: italic;
+            background: none;
+            color: var(--txt);
+            border: none;
+            display: block;
+        }
+        .minigame button:hover {
+            padding-left: 10px;
+        }
+        .minigame button::before {
+            content: "> ";
+        }
+    </style>
 </head>
 <body>
     <main>
@@ -19,6 +51,6 @@
         </div>
         </div>
     </main>
-    <script src="boredGame.js"></script>
+    <script src="scripts/boredGame.js"></script>
 </body>
 </html>

@@ -1,10 +1,10 @@
 @font-face {
     font-family:'logostile' ;
-    src: url(/public/css/font-files/Logostile.ttf);
+    src: url(/css/font-files/Logostile.ttf);
 }
 @font-face {
     font-family: 'garet';
-    src: url(/public/css/font-files/garet/Garet-Book.ttf);
+    src: url(/css/font-files/garet/Garet-Book.ttf);
 }
 :root {
     --bg: white;

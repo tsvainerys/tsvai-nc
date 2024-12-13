@@ -47,9 +47,68 @@ function waitForBus() {
     text.innerText = "You sit in the bus shelter.";
     opt1.innerText = "Take the first bus"
     opt2.innerText = "Take the second bus"
-    opt1.onclick = null;
+    opt1.onclick = firstBus;
     opt2.onclick = null;
 }
+function firstBus() {
+    text.innerText = "You take the first bus. It is crowded, and seems to be going to the local mall.";
+    opt1.innerText = "People-watch";
+    opt2.innerText = "Look out the window";
+    opt1.onclick = peopleWatch;
+    opt2.onclick = lookOutWindow;
+}
+const bus1Passengers = [
+    {
+        description:"a woman with large hair",
+        action: "She's reading a magazine",
+        opinion: "It seems trashy. She chews her gum far too loudly"
+    },
+    {
+        description: "a man with a prominent nose",
+        action: "He's looking out the window, watching the houses and businesses zoom by",
+        opinion: "He's very handsome, but his suit is too fine for your tastes"
+    },
+    {
+        description: "a woman with her son",
+        action: "Both of them are having a lively conversation about what they will do at the mall",
+        opinion: "You hope that someday you can have that kind of life"
+    }
+]
+let clickState = 0;
+function peopleWatch() {
+    opt1.innerText = "People-watch";
+    opt2.innerText = "Look out the window";
+    opt1.onclick = peopleWatch;
+    opt2.onclick = lookOutWindow;
+    clickState++;
+
+    if (clickState == 1 ) {
+        text.innerText = `You see ${bus1Passengers[0].description}. ${bus1Passengers[0].action}. ${bus1Passengers[0].opinion}.`;
+    } else if (clickState == 2 ) {
+        text.innerText = `You see ${bus1Passengers[1].description}. ${bus1Passengers[1].action}. ${bus1Passengers[1].opinion}.`;
+    } else if (clickState == 3 ) {
+        text.innerText = `You see ${bus1Passengers[2].description}. ${bus1Passengers[2].action}. ${bus1Passengers[2].opinion}.`;
+    } else {
+        text.innerText = "You don't find anyone else on the bus particularly interesting. You itch for something else to do.";
+        opt1.innerText = "Sit with your thoughts";
+        opt2.innerText = "Look out the window";
+        opt1.onclick = sitBus;
+        opt2.onclick = lookOutWindow;
+    } 
+}
+function lookOutWindow() {
+    text.innerText = "You look out the window of the bus. Little greenery passes you by, as the landscape has been overtaken by post-war development. You feel as though you can taste the radioactive carbon and strontium in the atmosphere, even though you know that's impossible.";
+    opt1.innerText = "Sit with your thoughts";
+    opt2.style.display = "none";
+    opt1.onclick = null;
+}
+/*function sitBus() {
+    text.innerText = "";
+    opt1.innerText = "";
+    opt2.innerText = "";
+    opt1.onclick = ;
+    opt2.onclick = ;
+}*/
 function goShopping() {
     text.innerText = "You enter the store. The lights are bright and the floor is shiny.";
     opt1.innerText = "Go to the clothing department";
@@ -72,7 +131,7 @@ function dressSuit() {
     opt2.onclick = shiftDress;
 }
 function shiftDress() {
-    text.innerText = "You try on the shift dress. You like its sleek";
+    text.innerText = "You try on the shift dress. You like its sleek silhouette.";
     opt1.innerText = "Buy the dress";
     opt2.innerText = "Try on the suit";
     opt1.onclick = buyDress;

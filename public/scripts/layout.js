@@ -36,13 +36,13 @@ const headerEl = `
 <header>
 <h1 id="site-title"><a href="${nesting}/index.html">t'svai's place</a></h1>
 </header>
-<nav id="navigation">
+<nav id="navigation" class="navigation">
 <ul>
     <li><a href="${nesting}/about.html">about</a></li>
-    <li><a href="${nesting}/site-log.html">site log</a></li>
-    <li><a href="${nesting}/links.html">links</a></li>
-    <li><a href="${nesting}/game.html">game</a></li>
+    <li><a href="${nesting}/misc/index.html">misc</a></li>
     <li><a href="${nesting}/blog/index.html">blog</a></li>
+    <li><a href="${nesting}/collections/index.html">collections</a></li>
+    <li><a href="${nesting}/links.html">links</a></li>
 </ul>
 </nav>
 `;

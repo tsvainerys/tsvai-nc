@@ -4,7 +4,13 @@
 }
 @font-face {
     font-family: 'garet';
+    font-weight: normal;
     src: url(font-files/garet/Garet-Book.ttf);
+}
+@font-face {
+    font-family: 'garet';
+    font-weight: bold;
+    src: url(font-files/garet/Garet-Heavy.ttf);
 }
 :root {
     --bg: white;
@@ -23,7 +29,14 @@
     box-sizing: border-box;
     max-width: 100%;
 }
+*::selection {
+    background-color: var(--acc2);
+}
+.mobile-only {
+    display: none;
+}
 body {
+    box-sizing: border-box;
     align-content: start;
     background-color: var(--bg);
     color: var(--textmain);
@@ -42,28 +55,42 @@ body {
         radial-gradient(circle at top right, var(--acc25) 30%, transparent);
 grid-template-areas: 
         'header header header header'
-        'navi main main main'
+        'navi main main navi2'
         'ft ft ft ft';
 }
-#navigation {
+li {
+    list-style-type: square;
+}
+.navigation {
     background: var(--sidebar);
     border: 1px solid var(--textmain);
     border-radius: 5px;
-    grid-area: navi;
-    height: fit-content;
     margin: 0;
-    margin-left: 10px;
     text-align: left;
     width: 100%;
+    height: fit-content;
 }
-nav ul {
+#navigation {
+    grid-area: navi;
+    margin-left: 10px;
+    justify-self: center;
+}
+#secondary-nav {
+   grid-area: navi2;
+   margin-right: 10px;
+   justify-self: center;
+   width: 150px;
+   font-size: 0.75rem;
+    padding: 10px;
+}
+.navigation ul {
     display: flex;
     flex-direction: column;
-    list-style: none;
     padding-left: 0;
 }
-nav li {
+.navigation li {
     background-color: var(--sidebar);
+    list-style-type: none;
     border-radius: 5px;
     box-sizing: border-box;
     margin: 3px 0;
@@ -74,6 +101,9 @@ a, footer a{
     color: var(--textmain);
     text-decoration: none;
     transition: 0.3s;
+}
+.arrow-anchor:hover {
+    padding-left: 5px;
 }
 nav a:hover {
     color: var(--bg);
@@ -113,10 +143,11 @@ main {
     border: 1px solid var(--textmain);
     border-radius:5px;
     grid-area: main;
-    margin: auto;
+    justify-self: center;
+    margin: auto ;
     margin-top: 0;
     padding: 20px;
-    width: 90%;
+    width: 95%;
 }
 .log {
     list-style-type: square;
@@ -134,6 +165,9 @@ a:hover{
 .small {
     font-size: small;
 }
+.highlight {
+    background-color: var(--sidebar);
+}
 hr {
     background-color: var(--textmain);
     border: none;
@@ -145,9 +179,6 @@ hr {
 }
 #footer {
     font-size: small;
-}
-.zonelets li {
-    list-style-type: square;
 }
 .zonelets a {
 
@@ -170,22 +201,24 @@ hr {
     body {
         display: block;
     }
+    .mobile-only {
+        display: initial;
+    }
     #site-title {
         padding-left: 1rem;
     }
-    #navigation {
+    .navigation {
         height: fit-content;
-        margin: auto;
-        margin-bottom: 1em;
+        margin: 1em 0!important;
         text-align: center;
         width: 1000vw;
     }
-    #navigation ul{
+    .navigation ul{
         column-gap: 0.5em;
         display: flexbox;flex-direction: row;
         padding-left: none;
     }
-    #navigation li {
+    .navigation li {
         flex-grow: 1;
         height: max-content;
         padding-left: 0;
@@ -195,6 +228,9 @@ hr {
         position: relative;
         top: 0;
         width: 100vw;
+    }
+    #secondary-nav {
+        display: none;
     }
     footer {
         width: initial;

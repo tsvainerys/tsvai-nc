@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0>
+    <meta charset="UTF-8>
+    <title>[title]</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <script src="../scripts/layout.js"></script>
+    <script src="../scripts/head.js">//only if using title</script>
+    <style>
+        #albums {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: space-evenly;
+        }
+        .album {
+            position: relative;
+        }
+        .album img {
+            height: 100px;
+            width: 100px;
+            margin: 5px;
+            display: block;
+        }
+        .overlay {
+            background-color: rgba(0, 0, 0, 0.65);
+            color: white;
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 100px;
+            width: 100px;
+            margin: 5px;
+            opacity: 0;
+            transition: 0.5s;
+        }
+        .album:hover .overlay {
+            opacity: 100%;
+        }
+        .overlay ul {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            padding-left: 5px;
+        }
+        .overlay li {
+            text-wrap: wrap;
+            list-style-type: none;
+            font-size: 0.75rem;
+            line-height: 0.9rem;
+        }
+        /* album info */
+        .album-artist, .album-year {
+           opacity: 80%;
+        }
+        li.album-year {
+            font-style: italic;
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <h1>albums</h1>
+        <p>Albums I like.</p>
+        <div id="albums">
+        </div>
+    </main>
+</body>
+<script>
+    const albums = [
+        {name:"Gunfighter Ballads and Trail Songs", artist:"Marty Robbins", year:1959, genre:"country", img:"https://upload.wikimedia.org/wikipedia/en/9/9a/Gunfighter-Ballads-Robbins-CD.jpg"},
+        {name: "Grass Geysers... Carbon Clouds", artist: "Enon", year:2007, genre:"Alt Rock", img:"https://i.discogs.com/LmSdLtxFvcXj9dtKIPxbuNzJL4QZxH9-fA_t0GgN1_E/rs:fit/g:sm/q:90/h:536/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTExNjEx/NzctMTYwMTY4NTMx/OS00NDY4LmpwZWc.jpeg"},
+        {name: "Four-Calendar Café", artist: "Cocteau Twins", year:1993, genre:"Alt Rock", img:"https://i.discogs.com/oX8Mjj1FI4Qc9lf0VuBnWaXLLMLg8DCnAENgDF8rq4E/rs:fit/g:sm/q:90/h:500/w:500/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTI4NTI2/LTExMjI3MjAzMDMu/anBn.jpeg"},
+        {name: "Coral Fresh", artist: "Golemm", year:2022, genre:"Breakcore", img:"https://f4.bcbits.com/img/a2080634587_16.jpg"},
+        {name: "Hazardous Bubble Basics", artist: "Golemm", year:2021, genre:"Breakcore", img:"https://f4.bcbits.com/img/a4247658635_16.jpg"},
+        {name: "Finally Woken", artist: "Jem", year:2004, genre:"Pop Rock", img:"https://i.discogs.com/OmVFEiXp63iyA6fudEgB_o7ZS7ihBkdNpYPQTI8Dn54/rs:fit/g:sm/q:90/h:599/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTMxOTQ3/Ni0xMjkwODQ3NTYx/LnBuZw.jpeg"},
+        {name: "Milk & Kisses", artist: "Cocteau Twins", year:1996, genre:"Ethereal", img:"https://i.discogs.com/kQ-z_OPrh87wL5xDIVJUypmaSscjJwImcHkIDgy9qWM/rs:fit/g:sm/q:90/h:600/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTI4NTI3/LTEyMTc3MDY1Nzcu/anBlZw.jpeg"},
+        {name: "Details", artist: "Frou Frou", year:2002, genre:"Pop Rock", img:"https://i.discogs.com/Qee9q9FAbJOgP_q4oXLUWBQSvr3qYsaPUjkAPy3sebc/rs:fit/g:sm/q:90/h:594/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTExODEz/MjYtMTUzNjQxNzYz/NC0xMTQ5LmpwZWc.jpeg"},
+        {name: "Tonight, Absolutely", artist: "Itsue", year:2015, genre:"Alt Rock", img:"https://i.discogs.com/MnDF-05JNll6fs61M_K2XfMKZg9LoQcPSgFTShSLb4w/rs:fit/g:sm/q:90/h:600/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTEyMDc2/NTA3LTE1MzUwMTcy/MzMtNzQ4OC5qcGVn.jpeg"},
+        {name: "Gizmodgery", artist: "Self", year:2000, genre:"Alt Rock", img:"https://i.discogs.com/EA-_g09QBNTmwUhLDSTGuckNiYesL3F6VDtxG7Jde5I/rs:fit/g:sm/q:90/h:588/w:591/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTUyODc5/MS0xNTA1OTk2NzQx/LTQzNTQucG5n.jpeg"},
+        {name: "Hunting High and Low", artist: "a-ha", year:1985, genre:"", img:"https://i.discogs.com/iMPnpZ1rscxTFsfaZabVJ5k97xbp-HIM6G1YMjaUw4U/rs:fit/g:sm/q:90/h:600/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTMyMjE4/OC0xMTU2NTgyOTQ0/LmpwZWc.jpeg"},
+        {name: "Saturnine Martial & Lunatic", artist: "Tears For Fears", year:1996, genre:"", img:"https://i.discogs.com/6Cq4jLuw-QoSdDV990VBdliGWkZJIYmg1sPuwrlSqf4/rs:fit/g:sm/q:90/h:586/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTE0NjU1/NDMtMTYyMTYyMTI3/Mi01NzA2LmpwZWc.jpeg"},
+        {name: "Staring At The Sun", artist: "Level 42", year:1988, genre:"", img:"https://i.discogs.com/fyFq6Lls2-d9V1Dzflsb538C9X9MXdPkMevgh6jSX1g/rs:fit/g:sm/q:90/h:595/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTUzNDE3/MC0xNTg1MzU5NDgw/LTg5OTYuanBlZw.jpeg"},
+        {name: "How Do You Feel Now?", artist: "Joywave", year:2015, genre:"", img:"https://i.discogs.com/XS3UAgEIEgE7A-H4Gk-CMgx3mBx1NMZg9oQL26OXy0s/rs:fit/g:sm/q:90/h:600/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTY5MzQx/MDItMTQyOTg1Nzcw/MS0zNDY2LmpwZWc.jpeg"},
+        {name: "InnerSpeaker", artist: "Tame Impala", year:2010, genre:"", img:"https://i.discogs.com/hoQwKpkzuJ_cwXy15lOwuASGNEM88Uk3VhuYlEu-JSE/rs:fit/g:sm/q:90/h:600/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTI0MDI3/MjAtMTY5NjI3Njc0/NS05OTQzLmpwZWc.jpeg"},
+        {name: "Torches", artist: "Foster The People", year:2011, genre:"", img:"https://i.discogs.com/iAtQlMyK-qtHcA6Euihhh31O60PzZS4VkQtTOz7P7Ns/rs:fit/g:sm/q:90/h:500/w:500/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTI5MDM2/NDQtMTMyMTE2MTg5/OS5qcGVn.jpeg"},
+        {name: "The ArchAndroid", artist: "Janelle Monáe", year:2010, genre:"", img:"https://i.discogs.com/uknUntpJZDSJPg1DMEu19jKLjBh4gh5yxJxa3O4_TTY/rs:fit/g:sm/q:90/h:595/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTIzNTg2/MzgtMTI3OTg5MDM0/MC5qcGVn.jpeg"},
+        {name: "Static", artist: "Cults", year:2013, genre:"", img:"https://i.discogs.com/Yt-5s9O-HkLQ95OXf8jK5YH1NavxBJhdcAjDUkYe67c/rs:fit/g:sm/q:90/h:599/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTQ5OTg5/MTUtMTM4MjcyODA3/NC02NTk1LmpwZWc.jpeg"},
+        {name: "Songs From The Big Chair", artist: "Tears For Fears", year:1985, genre:"", img:"https://i.discogs.com/wbveeAFdX4QYUdMQ-SXYrWme1i0c_LPmqWZlZ9H7DCc/rs:fit/g:sm/q:90/h:600/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTEyNDE4/Ny0xMzQ5MDA0MzE1/LTU5NDguanBlZw.jpeg"},
+        {name: "The Seeds Of Love", artist: "Tears For Fears", year:1989, genre:"", img:"https://i.discogs.com/uThnugJkh0Nl4wIY-w-FaJIUs7owJuDfOI2NXayZgAA/rs:fit/g:sm/q:90/h:593/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTUzMDE2/MC0xNTMwMDg4NjA4/LTc0MDkuanBlZw.jpeg"},
+        {name: "Making Mirrors", artist: "Gotye", year:2011, genre:"", img:"https://i.discogs.com/EcVUbdMuFeJGKOb6huAF2RzoV_NZrfL5f7BibwZmqTg/rs:fit/g:sm/q:90/h:293/w:293/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTMwNjk1/MjgtMTMxNDI3NTk2/NS5qcGVn.jpeg"},
+        {name: "Like Drawing Blood", artist: "Gotye", year:2006, genre:"", img:"https://i.discogs.com/g2SPuAWm_ohRGxI_qSWGtWUsRJWv2ON7Rk5VtwqgJ7w/rs:fit/g:sm/q:90/h:400/w:400/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTg5MzY0/Ni0xMTcwMDczMzgz/LmpwZWc.jpeg"},
+        {name: "The Story Of A Young Heart", artist: "A Flock Of Seagulls", year:1984, genre:"", img:"https://i.discogs.com/5uyxBAPqdtMSGGUNlrSZD7UkJimji-Ng-vya08wOQQ8/rs:fit/g:sm/q:90/h:563/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTE4Mjc5/NzctMTI0NjEwNzY5/NC5qcGVn.jpeg"},
+        {name: "Listen", artist: "A Flock Of Seagulls", year:1982, genre:"", img:"https://upload.wikimedia.org/wikipedia/en/a/a1/Flockofseagulls_listen.jpg"},
+        {name: "The Slow Rush", artist: "Tame Impala", year:2020, genre:"", img:"https://i.discogs.com/Rja7_7blskVR_XOqWOHM86knN5klPWfbwursgM9bSaQ/rs:fit/g:sm/q:90/h:600/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTE0Nzgz/ODIyLTE1ODE2MjEy/MjEtODc1NC5qcGVn.jpeg"},
+        {name: "The Hurting", artist: "Tears For Fears", year:1983, genre:"", img:"https://i.discogs.com/4BzxfnA_zO5vZxRAqrSh7-MqIdu7TsEvd_kUBtHQc4o/rs:fit/g:sm/q:90/h:600/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTI2MzYx/OTUtMTQzOTAyMTEy/NS05OTYyLmpwZWc.jpeg"},
+        {name: "Swimmer", artist: "Tennis", year:2020, genre:"", img:"https://upload.wikimedia.org/wikipedia/en/d/d5/Tennis_Swimmer.png"},
+        {name: "Be the Cowboy", artist: "Mitski", year:2018, genre:"", img:"https://upload.wikimedia.org/wikipedia/en/f/f3/Be_the_Cowboy.jpg"},
+        {name: "Gorillaz", artist: "Gorillaz", year:2001, genre:"", img:"https://upload.wikimedia.org/wikipedia/en/9/9c/Gorillaz_2001_album.png?20240329171534"},
+        {name: "Plastic Beach", artist: "Gorillaz", year:2010, genre:"", img:"https://upload.wikimedia.org/wikipedia/en/d/d1/Plasticbeach452.jpg?20210720112807"}
+    ];
+    albums.sort((a, b) => a.artist.localeCompare(b.artist)); 
+    albums.forEach ((albums) => {
+     let album = document.createElement("div");
+     album.classList.add("album");
+     let albumBox = document.getElementById("albums");
+        album.innerHTML = `<img src="${albums.img}" alt="${albums.name}"><div class="overlay"><ul><li class="album-name">${albums.name}</li><li class="album-artist">${albums.artist}</li><li class="album-year">${albums.year}</li>`;
+        albumBox.appendChild(album);
+    })
+
+</script>
+</html>

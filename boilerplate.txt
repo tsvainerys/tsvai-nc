@@ -5,8 +5,8 @@
     <meta charset="UTF-8">
     <title>[title]</title>
     <link rel="stylesheet" href="css/style.css">
-    <script src="layout.js"></script>
-    <script src="head.js">//only if using title</script>
+    <script src="scripts/layout.js"></script>
+    <script src="scripts/head.js">//only if using title</script>
 </head>
 <body>
     <main>

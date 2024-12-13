@@ -28,5 +28,14 @@
 			"}$0"
 		],
 		"description": "Create new option function for game"
+	},
+	"album function":{
+		"scope": "javascript",
+		"prefix": "alb",
+		"body": [
+			"{name: \"$1\", artist: \"$2\", year:\"$3\", genre:\"$4\"},",
+			"$0"
+		],
+		"description": "Add new album to array"
 	}
 }

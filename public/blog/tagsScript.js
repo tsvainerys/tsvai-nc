@@ -41,6 +41,7 @@ let postsArray = [
 //[ "posts/2020-11-10-My-Third-Post-Example.html", "" ],
 //[ "posts/2020-11-10-My-Second-Post-Example.html", "" ],
 //[ "posts/2020-11-10-Post-Template.html", "", "exampleTag1", "exampleTag2" ],
+[ "posts/2024-12-12-fissure-quest.html", "", "trek", "vent"],
 [ "posts/2024-12-11-additions.html", "", "updates"],
 [ "posts/2024-11-15-i-added-a-blog.html", encodeURI( 'I added a blog.' ), "updates" ],
 
@@ -300,7 +301,7 @@ if (document.getElementById("postTags")) {
 //Dynamically set the HTML <title> tag from the postTitle variable we created earlier
 //The <title> tag content is what shows up on browser tabs
 if (document.title === "Blog Post") {
-  document.title = `${currentPostTitle} - t'svai's place`;
+  document.title = currentPostTitle;
 }
 if (document.getElementById("tagfooter")) {
   document.getElementById("tagfooter").innerHTML = "<a href='../index.html'>index</a><a href='../archive.html'>archive</a>"

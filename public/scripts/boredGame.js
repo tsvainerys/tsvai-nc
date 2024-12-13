@@ -112,9 +112,44 @@ function lookOutWindow() {
 function goShopping() {
     text.innerText = "You enter the store. The lights are bright and the floor is shiny.";
     opt1.innerText = "Go to the clothing department";
-    opt2.innerText = "Go to the homewares department";
+    opt2.innerText = "Go to the housewares department";
     opt1.onclick = clothesShop;
-    opt2.onclick = null;
+    opt2.onclick = housewares;
+}
+function housewares() {
+    text.innerText = "You step into the housewares department. Bright colors and quirky patterns assault your eyes.";
+    opt1.innerText = "Look at the stereo console";
+    opt2.innerText = "Look at the wallpaper";
+    opt1.onclick = stereoConsole;
+    opt2.onclick = wallpaper;
+}
+function stereoConsole() {
+    text.innerText = "You stand in front of a stereo console. It has a spot for a radio and a record player. You think fondly of the idea of having a record player to play all the new Terran music you've heard at work, but dread having to deal with the bulk.";
+    opt1.innerText = "Buy the stereo console";
+    opt2.innerText = "Look at the wallpaper";
+    opt1.onclick = buyStereo;
+    opt2.onclick = wallpaper;
+}
+function buyStereo() {
+    text.innerText = "You buy the stereo console and ask the clerk for delivery. You think that the first record you'll buy will be that Supremes one that came out a little while ago. Your stomach growls.";
+    opt1.innerText = "Get food";
+    opt2.innerText = "Go home";
+    opt1.onclick = getFood;
+    opt2.onclick = goHome;
+}
+function wallpaper() {
+    text.innerText = "You stand in the wallpaper department. A simple design calls to you, but its asymmetric starbursts remind you of home.";
+    opt1.innerText = "Buy a roll of the wallpaper";
+    opt2.innerText = "Look at the stereo console";
+    opt1.onclick = buyWallpaper;
+    opt2.onclick = stereoConsole;
+}
+function buyWallpaper() {
+    text.innerText = "You buy a roll of the starburst wallpaper. You consider going into the city someday to get matching faceplates. Your stomach growls.";
+    opt1.innerText = "Get food";
+    opt2.innerText = "Go home";
+    opt1.onclick = getFood;
+    opt2.onclick = goHome;
 }
 function clothesShop() {
     text.innerText = "You stand in the women's clothing department. The clothes are unfamiliar yet beautiful.";
@@ -182,8 +217,16 @@ function takeWalk() {
 }
 function goHome() {
     text.innerText = "You walk home.";
-    opt1.style.display = "none";
+    opt1.innerText = "Restart?";
     opt2.style.display = "none";
-    opt1.onclick = null/*end*/;
+    opt1.onclick = restart;
     opt2.onclick = null/*end*/;
+}
+function restart() {
+    opt2.style.display = "initial";
+    text.innerText = "You sit in your living room.";
+    opt1.innerText = "Read a book";
+    opt2.innerText = "Leave the house";
+    opt1.onclick = readBook;
+    opt2.onclick = goOut;
 }

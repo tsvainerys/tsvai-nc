@@ -41,6 +41,7 @@ let postsArray = [
 //[ "posts/2020-11-10-My-Third-Post-Example.html", "" ],
 //[ "posts/2020-11-10-My-Second-Post-Example.html", "" ],
 //[ "posts/2020-11-10-Post-Template.html", "", "exampleTag1", "exampleTag2" ],
+[ "posts/2025-01-26-a-good-start-to-the-new-year.html", "", "medialog", "craftlog"],
 [ "posts/2024-12-12-fissure-quest.html", "", "trek", "vent"],
 [ "posts/2024-12-11-additions.html", "", "updates"],
 [ "posts/2024-11-15-i-added-a-blog.html", encodeURI( 'I added a blog.' ), "updates" ],

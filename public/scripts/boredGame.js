@@ -105,6 +105,7 @@ function lookOutWindow() {
 /*function sitBus() {
     text.innerText = "";
     opt1.innerText = "";
+    opt2.style.display = "initial";
     opt2.innerText = "";
     opt1.onclick = ;
     opt2.onclick = ;

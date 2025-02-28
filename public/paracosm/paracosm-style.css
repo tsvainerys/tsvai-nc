@@ -1,16 +1,16 @@
 @font-face {
     font-family:'logostile' ;
-    src: url(font-files/Logostile.ttf);
+    src: url(../css/font-files/Logostile.ttf);
 }
 @font-face {
     font-family: 'garet';
     font-weight: normal;
-    src: url(font-files/garet/Garet-Book.ttf);
+    src: url(../css/font-files/garet/Garet-Book.ttf);
 }
 @font-face {
     font-family: 'garet';
     font-weight: bold;
-    src: url(font-files/garet/Garet-Heavy.ttf);
+    src: url(../css/font-files/garet/Garet-Heavy.ttf);
 }
 :root {
     --bg: white;

@@ -14,11 +14,11 @@
 }
 :root {
     --bg: white;
-    --center: #d1e4fa;
+    --center: white;
     --garet: 'garet', sans-serif;
     --logostile: 'logostile', sans-serif;
-    --sidebar: #a4afe9;
-    --textmain: #0e1c22;
+    --sidebar: white;
+    --textmain: black;
 
     --acc1: #3851a3;
     --acc2: #269cf7;
@@ -48,18 +48,10 @@ body {
     margin: auto;
     min-height: 100vh;
     width: 95%;
-    background-image: 
-        linear-gradient(150deg, var(--acc15), transparent 65%, var(--acc15)),
-        linear-gradient(to bottom right, transparent 30%, var(--acc25), transparent 30%),
-        radial-gradient(circle at bottom left, var(--acc25) 30%, transparent),
-        radial-gradient(circle at top right, var(--acc25) 30%, transparent);
-grid-template-areas: 
+    grid-template-areas: 
         'header header header header'
         'navi main main navi2'
         'ft ft ft ft';
-}
-a {
-    color: var(--acc2);
 }
 li {
     list-style-type: square;
@@ -108,11 +100,6 @@ a, footer a{
 .arrow-anchor:hover {
     padding-left: 5px;
 }
-nav a:hover {
-    color: var(--bg);
-
-    /*text-shadow: 0 0 7px var(--bg);*/
-}
 nav .active::before, nav .active::after {
     content: '_';
 }
@@ -138,7 +125,7 @@ header {
    }
 #site-title a {
     color: var(--textmain);
-    text-shadow: -2px 2px var(--acc1);
+    text-shadow: -2px 2px var(--acc2);
     transition: 0.3s;
 }
 main {
@@ -162,7 +149,7 @@ footer {
     text-align: center;
 }
 a:hover{
-    color: var(--acc1);
+    color: var(--acc2);
     text-shadow: 0px 1px var(--sidebar);
 }
 .small {
@@ -171,6 +158,7 @@ a:hover{
 .highlight {
     background-color: var(--sidebar);
 }
+
 hr {
     background-color: var(--textmain);
     border: none;
@@ -183,11 +171,14 @@ hr {
 #footer {
     font-size: small;
 }
-.zonelets a, .zonelets p a {
-    color: var(--acc1);
+.zonelets a {
+    color: var(--acc2)
+}
+.zonelets p a {
+    color: var(--textmain);
 }
 .zonelets a:hover, .zonelets p a:hover {
-    color: var(--acc1);
+    color: var(--acc2);
     text-shadow: 0 1px var(--sidebar);
 }
 #tagfooter {
@@ -237,11 +228,9 @@ hr {
 }
 @media (prefers-color-scheme: dark) {
     :root {
-        --bg: #0e1c22;
-        --center: #0e1c22;
-        --sidebar: #3851a3;
-        --textmain: #e4e4fa;
-
-        --acc1: #a4afe9;
+        --bg: black;
+        --center: black;
+        --sidebar: black;
+        --textmain: white;
     }
 }

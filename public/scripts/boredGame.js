@@ -100,12 +100,82 @@ function lookOutWindow() {
     text.innerText = "You look out the window of the bus. Little greenery passes you by, as the landscape has been overtaken by post-war development. You feel as though you can taste the radioactive carbon and strontium in the atmosphere, even though you know that's impossible.";
     opt1.innerText = "Sit with your thoughts";
     opt2.style.display = "none";
-    opt1.onclick = null;
+    opt1.onclick = sitBus;
 }
-/*function sitBus() {
+function sitBus() {
+    text.innerText = "Sometimes you miss home. You miss the warm sand and the cold evenings, the spicy food and the refreshing desserts. You think about your family, and how they urged you to study something other than nuclear physics. You think about your days at the IBDA and how quickly you were assigned to Earth. You think about your job, you think about the state of the world you live on – political, environmental, everything approaching disaster – and suddenly sitting on the bus is so insignificant you feel like throwing up.";
+    opt1.innerText = "Get off the bus";
+    opt2.style.display = "initial";
+    opt2.innerText = "Stay on the bus";
+    opt1.onclick = getOffBus;
+    opt2.onclick = null/*stayOnBus*/;
+}
+function getOffBus() {
+    text.innerText = "You get off the bus, feeling a little dizzy. The mall is large, but bland and relatively unimposing.";
+    opt1.innerText = "Walk around";
+    opt2.innerText = "Stay outside";
+    opt1.onclick = walkAround;
+    opt2.onclick = null/*stayOutside*/;
+}
+function walkAround() {
+    text.innerText = "You go inside the mall. You enter through the Sears, in the women's clothing section. ";
+    opt1.innerText = "Look at the clothes";
+    opt2.innerText = "Go to see other stores";
+    opt1.onclick = searsClothes;
+    opt2.onclick = null/*otherStore*/;
+}
+function searsClothes() {
+    text.innerText = "You look at the clothes. While examining a wool coat, you spot the children's section on the other side of the floor.";
+    opt1.innerText = "Try on the coat";
+    opt2.innerText = "Go to the children's section";
+    opt1.onclick = null/*tryCoat*/;
+    opt2.onclick = childrensSection;
+}
+/*function tryCoat() {
     text.innerText = "";
     opt1.innerText = "";
-    opt2.style.display = "initial";
+    opt2.innerText = "";
+    opt1.onclick = ;
+    opt2.onclick = ;
+}*/
+function childrensSection() {
+    text.innerText = "You go to the children's section. You have no children of your own, but you realize the idea of having some has been on your mind lately. You think of your sister back home and her toddler, how small he felt in your hands. You think of your coworker, the one at the desk next to yours, who kept a framed picture of his young daughter on his desk. You wonder if that could be you, but you also know you couldn't be like them, couldn't leave this planet in good faith, couldn't start a family here in good faith, either.";
+    opt1.innerText = "Go back to the coat";
+    opt2.innerText = "Get a breath of fresh air";
+    opt1.onclick = null/*tryCoat*/;
+    opt2.onclick = freshAir;
+}
+function freshAir() {
+    text.innerText = "You go outside to get some air. The polluted air of the suburban center fills your lungs. You think of the mission. You hate the IBD and IBS, hate how they view humans as reckless children who don't know any better. You hate how they have their strange prime directive, where non-interference is of the utmost importance until they think they can recruit a species to fight their eternal war. The bus pulls up as your stew in your anger.";
+    opt1.innerText = "Take the bus home";
+    opt2.style.display = "none";
+    opt1.onclick = takeBusHome;
+    opt2.onclick = null;
+}
+function takeBusHome() {
+    text.innerText = "You take the bus home. The sunset paints the inside orange and gold, and you feel like everything will be okay.";
+    opt1.innerText = "Restart?";
+    opt2.style.display = "none";
+    opt1.onclick = restart;
+    opt2.onclick = null;
+}
+/*function otherStore() {
+    text.innerText = "";
+    opt1.innerText = "";
+    opt2.innerText = "";
+    opt1.onclick = ;
+    opt2.onclick = ;
+}*/
+/*function stayOutside() {
+    text.innerText = "";
+    opt1.innerText = "";
+    opt2.innerText = "";
+    opt1.onclick = ;
+    opt2.onclick = ;
+}*/
+/*function stayOnBus() {
+    text.innerText = "";
+    opt1.innerText = "";
     opt2.innerText = "";
     opt1.onclick = ;
     opt2.onclick = ;

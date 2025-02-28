@@ -1,3 +1,4 @@
 .DS_Store
 *.txt
-public/paracosm
+public/paracosm/landing
+public/paracosm/world.html
